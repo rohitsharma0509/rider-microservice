@@ -1,0 +1,22 @@
+NOTIFICATION_SERVICE_BASE_PATH: "http://notification-service.dev2:8080"
+OPERATION_SERVICE_BASE_PATH: "http://operations-service.dev2:8080"
+JOB_SERVICE_BASE_PATH: "http://job-service.dev2:8080"
+BROADCAST_SERVICE_BASE_PATH: "http://broadcast-service.dev2:8080" 
+POCKET_SERVICE_BASE_PATH: "http://pocket-service.dev2:8080"
+LOCATION_SERVICE_BASE_PATH: "http://location-service.dev2:8080"
+INCENTIVES_SERVICE_BASE_PATH: "http://incentives-service.dev2:8080"
+NEWS_PROMOTION_SERVICE: "http://news-promotions-service.dev2:8080"
+AMAZON_S3_BUCKET_NAME : "rider-static-content-dev2"
+AMAZON_S3_EXTERNAL_BUCKET_NAME : "rider-external-content-dev2"
+COGNITO_URL_APP: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_5Sn2G5ajz
+COGNITO_URL_OPS: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_wC0TsdBah
+SMS_SERVICE_STATUS: DISABLED
+KAFKA_REPLICA: "2"
+PDPA_BASE_PATH: "https://b2b-apis-qa.alp-robinhood.com"
+REDIS_PRIMARY_HOST: rider-dev-elasticache-redis.l9akz6.ng.0001.apse1.cache.amazonaws.com
+REDIS_READ_HOST: rider-dev-elasticache-redis-ro.l9akz6.ng.0001.apse1.cache.amazonaws.com
+USER_POOL_ID: ap-southeast-1_5Sn2G5ajz
+KAFKA_PARTITION_JOBSTATUS: "5"
+KAFKA_PARTITION_NOTIFICATION: "5"
+KAFKA_PARTITION_RIDERAVAIL: "3"
+KAFKA_PARTITION_STATUSUPDATE: "3"

@@ -1,0 +1,29 @@
+---
+# Source: environment/templates/devops-config/deployment/deployment-vars-{{env}}.yml
+# This file was generated at  using generator Version: 
+
+DEPLOYMENT:
+    ENV: preprod3
+    NAMESPACE: preprod3
+    CONFIG_FILES:
+        - "src/main/resources/config/rider-service.default.yaml"
+        - "src/main/resources/config/rider-service.preprod3.yaml"
+
+APP:
+    REPLICA: 125
+    HPA:
+      ENABLED: 0
+      MIN_REPLICA: 3
+      MAX_REPLICA: 6
+      CPU_UTILIZATION: 65
+      MEMORY_UTILIZATION: 80
+    CONTAINER:
+      MEMORY:
+        REQUEST: 1Gi
+        LIMIT: 2Gi
+      CPU:
+        REQUEST: 1
+        LIMIT: 2
+    ENVIRONMENT:
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/preprod3/rider-service/"

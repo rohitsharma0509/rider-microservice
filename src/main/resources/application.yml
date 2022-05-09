@@ -1,0 +1,107 @@
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+
+###
+amazon:
+  s3:
+    bucket-name: ${AMAZON_S3_BUCKET_NAME}
+    external-bucket-name: ${AMAZON_S3_EXTERNAL_BUCKET_NAME}
+
+spring:
+  application:
+    name: rider-service
+  messages:
+    basename: Sms, ValidationMessages
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+
+upload:
+  maxFileSizeMB: 20 #MB
+
+secretsPath: ${SECRETS_PATH}
+mongo.dbName: RIDER_ONBOARDING
+
+kafka:
+  notification-topic: notification
+  consumerGroupId: rider-service-consumer-group
+  sms-topic: sms-notification
+  rider-status-topic: rider-job-status
+  rider-profile-update-topic: rider-profile-update
+  replicas: ${KAFKA_REPLICA}
+  rider-availability-topic: rider-availability
+  rider-status-update-topic: rider-status-update
+  rider-status-update-partitions: ${KAFKA_PARTITION_STATUSUPDATE}
+  groupInstanceId: ${HOSTNAME}
+  notification-partitions: ${KAFKA_PARTITION_NOTIFICATION}
+  rider-job-status-partitions: ${KAFKA_PARTITION_JOBSTATUS}
+  rider-availability-partitions: ${KAFKA_PARTITION_RIDERAVAIL}
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 20000
+        loggerLevel: basic
+      notificationFeignClient:
+        connectTimeout: 10000
+        readTimeout: 20000
+        loggerLevel: full
+rider:
+  client:
+    notification-service: ${NOTIFICATION_SERVICE_BASE_PATH}
+    operation-service: ${OPERATION_SERVICE_BASE_PATH}
+    job-service: ${JOB_SERVICE_BASE_PATH}
+    pocket-service: ${POCKET_SERVICE_BASE_PATH}
+    broadcast-service: ${BROADCAST_SERVICE_BASE_PATH}
+    incentives-service: ${INCENTIVES_SERVICE_BASE_PATH}
+    location-service: ${LOCATION_SERVICE_BASE_PATH}
+    newsPromotion-service: ${NEWS_PROMOTION_SERVICE}
+
+  profile:
+    database:
+      sequence:
+        prefix: RR
+  sms-service:
+    status: ${SMS_SERVICE_STATUS}
+
+logging:
+  ignoreUrls: "/rider/download"
+  level:
+    root: INFO
+    #org.zalando.logbook: TRACE
+
+cognito:
+  app:
+    url: ${COGNITO_URL_APP}
+  ops:
+    url: ${COGNITO_URL_OPS}
+
+redis:
+  primaryNode: ${REDIS_PRIMARY_HOST}
+  readNode: ${REDIS_READ_HOST}
+  ttl: 86400 #seconds
+
+pdpa:
+  baseUrl: ${PDPA_BASE_PATH}
+  uri:
+    inquiry: /pdpa/v1/management/inquiry
+    management: /pdpa/v1/management/management
+    validate: /pdpa/v1/collection/validate
+    consent: /pdpa/v1/collection/csent
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+  metrics:
+    web:
+      server:
+        auto-time-requests: true
+aws:
+  cognito:
+    userPoolId: ${USER_POOL_ID}

@@ -1,0 +1,18 @@
+NOTIFICATION_SERVICE_BASE_PATH: "http://notification-service.dev:8080"
+OPERATION_SERVICE_BASE_PATH: "http://operations-service.dev:8080"
+JOB_SERVICE_BASE_PATH: "http://job-service.dev:8080"
+BROADCAST_SERVICE_BASE_PATH: "http://broadcast-service.dev:8080"
+INCENTIVES_SERVICE_BASE_PATH: "http://incentives-service.dev:8080"
+POCKET_SERVICE_BASE_PATH: "http://pocket-service.dev:8080"
+LOCATION_SERVICE_BASE_PATH: "http://location-service.dev:8080"
+NEWS_PROMOTION_SERVICE: "http://news-promotions-service.dev:8080"
+AMAZON_S3_BUCKET_NAME : "rider-static-content-dev"
+AMAZON_S3_EXTERNAL_BUCKET_NAME : "rider-external-content-dev"
+SMS_SERVICE_STATUS: DISABLED
+KAFKA_REPLICA: "3"
+PDPA_BASE_PATH: "https://b2b-apis-dev.alp-robinhood.com"
+REDIS_PRIMARY_HOST: rider-dev-elasticache-redis.l9akz6.ng.0001.apse1.cache.amazonaws.com
+REDIS_READ_HOST: rider-dev-elasticache-redis-ro.l9akz6.ng.0001.apse1.cache.amazonaws.com
+COMPANY: "SCB"
+PROJECT_NAME: "rider"
+DIST_TRACER_ENDPOINT: "http://jaeger-operator-jaeger-collector.default:14268/api/traces"

@@ -1,0 +1,22 @@
+AMAZON_S3_BUCKET_NAME : "rider-static-content-prod"
+NOTIFICATION_SERVICE_BASE_PATH: "http://notification-service.prod:8080"
+OPERATION_SERVICE_BASE_PATH: "http://operations-service.prod:8080"
+JOB_SERVICE_BASE_PATH: "http://job-service.prod:8080"
+POCKET_SERVICE_BASE_PATH: "http://pocket-service.prod:8080"
+INCENTIVES_SERVICE_BASE_PATH: "http://incentives-service.prod:8080"
+LOCATION_SERVICE_BASE_PATH: "http://location-service.prod:8080"
+NEWS_PROMOTION_SERVICE: "http://news-promotions-service.prod:8080"
+BROADCAST_SERVICE_BASE_PATH: "http://broadcast-service.prod:8080"
+AMAZON_S3_EXTERNAL_BUCKET_NAME : "rider-external-content-prod"
+COGNITO_URL_APP: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_LZUgnfEsy
+COGNITO_URL_OPS: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_Fu4N2gdAd
+SMS_SERVICE_STATUS: ENABLED
+KAFKA_REPLICA: "3"
+PDPA_BASE_PATH: "https://b2b-apis.robinhood.in.th"
+REDIS_PRIMARY_HOST: rider-prod-elasticache-redis.rwdgg5.ng.0001.apse1.cache.amazonaws.com
+REDIS_READ_HOST:  rider-prod-elasticache-redis-ro.rwdgg5.ng.0001.apse1.cache.amazonaws.com
+USER_POOL_ID: ap-southeast-1_LZUgnfEsy
+KAFKA_PARTITION_JOBSTATUS: "150"
+KAFKA_PARTITION_NOTIFICATION: "30"
+KAFKA_PARTITION_RIDERAVAIL: "25"
+KAFKA_PARTITION_STATUSUPDATE: "100"

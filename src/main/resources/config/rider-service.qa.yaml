@@ -1,0 +1,22 @@
+NOTIFICATION_SERVICE_BASE_PATH: "http://notification-service.qa:8080"
+OPERATION_SERVICE_BASE_PATH: "http://operations-service.qa:8080"
+JOB_SERVICE_BASE_PATH: "http://job-service.qa:8080"
+POCKET_SERVICE_BASE_PATH: "http://pocket-service.qa:8080"
+BROADCAST_SERVICE_BASE_PATH: "http://broadcast-service.qa:8080"
+INCENTIVES_SERVICE_BASE_PATH: "http://incentives-service.qa:8080"
+LOCATION_SERVICE_BASE_PATH: "http://location-service.qa:8080"
+NEWS_PROMOTION_SERVICE: "http://news-promotions-service.qa:8080"
+AMAZON_S3_BUCKET_NAME : "rider-static-content-qa"
+AMAZON_S3_EXTERNAL_BUCKET_NAME : "rider-external-content-qa"
+COGNITO_URL_APP: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_EusLkGiLC
+COGNITO_URL_OPS: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_xaLhzQCai
+SMS_SERVICE_STATUS: ENABLED
+KAFKA_REPLICA: "2"
+PDPA_BASE_PATH: "https://b2b-apis-qa.alp-robinhood.com"
+REDIS_PRIMARY_HOST: rider-qa-elasticache-redis.l9akz6.ng.0001.apse1.cache.amazonaws.com
+REDIS_READ_HOST: rider-qa-elasticache-redis-ro.l9akz6.ng.0001.apse1.cache.amazonaws.com
+USER_POOL_ID: ap-southeast-1_EusLkGiLC
+KAFKA_PARTITION_JOBSTATUS: "5"
+KAFKA_PARTITION_NOTIFICATION: "5"
+KAFKA_PARTITION_RIDERAVAIL: "3"
+KAFKA_PARTITION_STATUSUPDATE: "3"

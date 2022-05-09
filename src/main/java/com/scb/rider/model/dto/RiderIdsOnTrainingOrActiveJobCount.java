@@ -1,0 +1,20 @@
+package com.scb.rider.model.dto;
+
+import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class RiderIdsOnTrainingOrActiveJobCount {
+
+  private List<String> riderIds;
+ 
+}

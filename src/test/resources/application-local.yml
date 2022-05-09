@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: rider-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/RIDER_ONBOARDING?readPreference=primary&appname=MongoDB%20Compass&ssl=false
+      auto-index-creation: true
+
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+              
+rider:
+  client:
+    notification-service: https://notification-service.apps.dev.riderplatform.com
+    operation-service: https://operations-service.apps.dev.riderplatform.com
+    job-service: http://job-service.apps.dev.riderplatform.com
+    pocket-service: https://pocket-service.apps.dev.riderplatform.com
+    broadcast-service: https://broadcast-service.apps.dev.riderplatform.com
+    incentives-service: https://incentives-service.apps.dev.riderplatform.com
+    location-service: https://location-service.apps.dev.riderplatform.com
+    newsPromotion-service: https://news-promotions-service.apps.dev.riderplatform.com
+upload:
+  maxFileSizeMB: 2 #MB
+
+cognito:
+  app:
+    url: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_HLDWLUDkm
+  ops:
+    url: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_dLsH3DOsm
+
+pdpa:
+  baseUrl: https://b2b-apis-dev.alp-robinhood.com
+  uri:
+    inquiry: /pdpa/v1/management/inquiry
+    validate: /pdpa/v1/collection/validate
+    consent: /pdpa/v1/collection/csent
+    management: /pdpa/v1/management/management
+
+kafka:
+  notification-topic: notification
+  consumerGroupId: rider-service-consumer-group
+  sms-topic: sms-notification
+  rider-status-topic: rider-job-status
+  rider-profile-update-topic: rider-profile-update
+  replicas: 1
+  rider-availability-topic: rider-availability
+  rider-status-update-topic: rider-status-update
+  rider-status-update-partitions: 1
+  groupInstanceId: "rider-test"
+  notification-partitions: 1
+  rider-job-status-partitions: 1
+  rider-availability-partitions: 1
+
+redis:
+  primaryNode: http://127.0.0.1:6379
+  readNode: http://127.0.0.1:6379
+  ttl: 30 #seconds
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+  metrics:
+    web:
+      server:
+        auto-time-requests: true
+aws:
+  cognito:
+    userPoolId: ridermobile_dev_user_pool
+
+DIST_TRACER_ENDPOINT: ""
+COMPANY: ""
+PROJECT_NAME: ""
+secretsPath: src/test/resources

@@ -1,0 +1,108 @@
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+security:
+  basic:
+    enabled: false
+
+###
+amazon:
+  s3:
+    bucket-name: rider-document-stores
+    external-bucket-name: rider-document-stores
+spring:
+  application:
+    name: rider-service
+  profiles:
+    active: local
+  messages:
+    basename: Sms, ValidationMessages
+
+  kafka:
+    properties:
+      bootstrap.servers:  localhost:9092
+    template:
+      default-topic: rider-job-status
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+secretsPath: src/test/resources
+mongo.dbName: RIDER_ONBOARDING
+
+kafka:
+  notification-topic: notification
+  consumerGroupId: rider-service-consumer-group
+  sms-topic: sms-notification
+  rider-status-topic: rider-job-status
+  rider-profile-update-topic: rider-profile-update
+  replicas: 1
+  rider-availability-topic: rider-availability
+  rider-status-update-topic: rider-status-update
+  rider-status-update-partitions: 1
+  groupInstanceId: "rider-test"
+  notification-partitions: 1
+  rider-job-status-partitions: 1
+  rider-availability-partitions: 1
+
+upload:
+  maxFileSizeMB: 2 #MB
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 20000
+        loggerLevel: basic
+      notificationFeignClient:
+        connectTimeout: 10000
+        readTimeout: 20000
+        loggerLevel: full
+      pocketServiceFeignClient:
+        connectTimeout: 10000
+        readTimeout: 20000
+        loggerLevel: full
+rider:
+  client:
+    notification-service: https://notification-service.apps.dev.riderplatform.com
+    operation-service: https://operations-service.apps.dev.riderplatform.com
+    job-service: http://job-service.apps.dev.riderplatform.com
+    pocket-service: https://pocket-service.apps.dev.riderplatform.com
+    broadcast-service: https://broadcast-service.apps.dev.riderplatform.com
+    incentives-service: https://incentives-service.apps.dev.riderplatform.com
+    newsPromotion-service: https://news-promotions-service.apps.dev.riderplatform.com
+  profile:
+    database:
+      sequence:
+        prefix: RR
+  sms-service:
+    status: DISABLED
+
+redis:
+  primaryNode: http://127.0.0.1:6379
+  readNode: http://127.0.0.1:6379
+  ttl: 30 #seconds
+
+cognito:
+  app:
+    url: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_HLDWLUDkm
+  ops:
+    url: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_dLsH3DOsm
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+  metrics:
+    web:
+      server:
+        auto-time-requests: true
+aws:
+  cognito:
+    userPoolId: ridermobile_dev_user_pool
+
+DIST_TRACER_ENDPOINT: ""
+COMPANY: ""
+PROJECT_NAME: ""

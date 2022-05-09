@@ -1,0 +1,94 @@
+spring:
+  application:
+    name: rider-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/RIDER_ONBOARDING?readPreference=primary&appname=MongoDB%20Compass&ssl=false
+      auto-index-creation: true
+    web:
+      pageable:
+        one-indexed-parameters: true
+  kafka:
+    template:
+      default-topic: rider-job-status
+    properties:
+      bootstrap.servers: ${BOOTSTRAP_SERVERS}
+      sasl.mechanism: PLAIN
+      #security.protocol: SASL_SSL
+      #sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='MV753XOHFFSPZCYX' password='JytEi3bAHrANuppFMXn+gViTthyGie3FOLN6YvcrFGAT09Oyg13bhyW/9tPUa+U8';
+      #client.dns.lookup: "use_all_dns_ips"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+security:
+  basic:
+    enabled: false
+amazon:
+  s3:
+    bucket-name: rider-static-content-dev
+    external-bucket-name: rider-external-content-dev
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+upload:
+  maxFileSizeMB: 2 #MB
+              
+rider:
+  client:
+    notification-service: https://notification-service.apps.dev.riderplatform.com
+    operation-service: https://operation-service.apps.dev.riderplatform.com
+    pocket-service: https://pocket-service.apps.dev.riderplatform.com
+    job-service: https://job-service.apps.dev.riderplatform.com
+    broadcast-service: https://broadcast-service.apps.dev.riderplatform.com
+    location-service: https://location-service.apps.dev.riderplatform.com
+    newsPromotion-service: https://news-promotions-service.apps.dev.riderplatform.com
+    incentives-service: https://incentives-service.apps.dev.riderplatform.com
+secretsPath: asdf
+
+cognito:
+  app:
+    url: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_HLDWLUDkm
+  ops:
+    url: https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_dLsH3DOsm
+
+
+kafka:
+  notification-topic: notification
+  consumerGroupId: rider-service-consumer-group
+  sms-topic: sms-notification
+  rider-status-topic: rider-job-status
+  rider-profile-update-topic: rider-profile-update
+  replicas: 1
+  rider-availability-topic: rider-availability
+  rider-status-update-topic: rider-status-update
+  rider-status-update-partitions: 1
+  groupInstanceId: "host"
+  notification-partitions: 1
+  rider-job-status-partitions: 1
+  rider-availability-partitions: 1
+
+redis:
+  primaryNode: http://127.0.0.1:6379
+  readNode: http://127.0.0.1:6379
+  ttl: 30 #seconds
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+  metrics:
+    web:
+      server:
+        auto-time-requests: true
+
+DIST_TRACER_ENDPOINT: ""
+COMPANY: ""
+PROJECT_NAME: ""
